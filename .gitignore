@@ -260,3 +260,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# User
+logs/
