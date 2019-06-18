@@ -5,7 +5,7 @@
     {% else %}
         <title> Welcome to Microblog</title>
     {% endif %}
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
 </head>
 <body>
 <div>
@@ -18,7 +18,9 @@
         <a href="{{ url_for('logout') }}">Logout</a>
         <a href="{{ url_for('explore') }}">Explore</a>
     {% endif %}
-    <button id="test_js"> test js </button>
+    <button id="test_js"> test js</button>
+    <button id="take_list">Take list!</button>
+    <div id="list_container"></div>
 </div>
 <hr>
 {% with messages = get_flashed_messages() %}
@@ -31,6 +33,8 @@
     {% endif %}
 {% endwith %}
 {% block content %}{% endblock %}
+<script src="{{ url_for('static', filename='js/jquery-3.4.1.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/test.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jQueryTest.js') }}"></script>
 </body>
 </html>

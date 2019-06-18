@@ -1,11 +1,11 @@
 body {
-       background-color: rgb(169, 236, 200);
+    background-color: rgb(169, 236, 200);
 }
 
 .warning {
-    color:red;
+    color: red;
 }
 
-.top{
+.top {
     vertical-align: top
 }

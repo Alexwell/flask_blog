@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, jsonify
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 from app import app, db
@@ -165,3 +165,19 @@ def explore():
                            next_url=next_url,
                            prev_url=prev_url
                            )
+
+
+@app.route('/request_users_list', methods=['POST'])
+@login_required
+def request_users_list():
+    for i in request.form:
+        print(i, '===> ', request.form[i])
+
+    users_str = ''
+    users = User.query.all()
+    print(users)
+    print(type(users))
+    for j in users:
+        print(j.username)
+        users_str += ' *** ' + j.username
+    return jsonify({'text': users_str})
